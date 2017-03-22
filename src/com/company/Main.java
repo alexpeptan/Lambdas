@@ -1,5 +1,7 @@
 package com.company;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -171,5 +173,17 @@ public class Main {
                                 && p.getAge() < 24)
                 .map(p -> p.getEmailAddress())
                 .forEach(email -> System.out.println(email));
+
+        System.out.println("\nApproach 10: Passing Lambdas with more parameters");
+        Calculator calc = new Calculator();
+        Calculator.IntegerMath addition = (a, b) -> a + b;
+        Calculator.IntegerMath subtraction = (a, b) -> a - b;
+        System.out.println("12 + 43 = " + calc.operateBinary(12, 43, addition));
+        System.out.println("34 - 147 = " + calc.operateBinary(34, 147, subtraction));
+
+        System.out.println("\nApproach 11: Capturing variables inside lambda expressions from the enclosing scope");
+        LambdaScopeTest st = new LambdaScopeTest();
+        LambdaScopeTest.FirstLevel fl = st.new FirstLevel(); // careful at this syntax!
+        fl.methodInFirstLevel(334);
     }
 }
