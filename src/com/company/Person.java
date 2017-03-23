@@ -27,6 +27,14 @@ public class Person {
 
     String emailAddress;
 
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public Person(String name, LocalDate bday, Sex gender, String mail){
         this.name = name;
         this.birthday = bday;
@@ -44,5 +52,9 @@ public class Person {
 
     public String toString(){
         return name + " " + gender + " " + birthday + " " + emailAddress;
+    }
+
+    public static int compareByAge(Person a, Person b){
+        return a.birthday.compareTo(b.birthday);
     }
 }

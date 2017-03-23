@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.*;
 
@@ -24,7 +25,7 @@ public class Main {
 
     private static List<Person> persons = new ArrayList<>();
 
-    private static void initPersons() {
+    static void initPersons(Collection<Person> persons) {
         persons.add(new Person("Ana", LocalDate.of(1990, 12, 31), Person.Sex.FEMALE, "ana@gmail.com"));
         persons.add(new Person("Diana", LocalDate.of(1992, 1, 1), Person.Sex.FEMALE, "diana@gmail.com"));
         persons.add(new Person("Roxana", LocalDate.of(1995, 6, 22), Person.Sex.FEMALE, "roxana@gmail.com"));
@@ -103,7 +104,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        initPersons();
+        initPersons(persons);
 
         System.out.println("\nApproach 1: Create Methods That Search for Members That Match One Characteristic");
         printPersonsOlderThan(persons, 15);
